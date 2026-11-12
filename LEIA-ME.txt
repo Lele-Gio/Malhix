@@ -1,0 +1,25 @@
+MALHIX — PORTAL EDUCACIONAL DE ELETROELETRÔNICA
+
+COMO ABRIR
+1. Extraia todos os arquivos do ZIP para uma mesma pasta.
+2. Abra index.html no navegador (Chrome, Edge ou Firefox).
+3. Para editar, abra a pasta no VS Code.
+4. Não mova o arquivo PNG da pasta assets sem atualizar o caminho no HTML.
+
+ARQUIVOS
+- index.html: todas as seções do portal na mesma página.
+- style.css: layout, cores, menu fixo, rolagem central e versão para celular.
+- script.js: navegação interna, atividades, quiz, simulado, configurações etc.
+- assets/logo-malhix.png: logo transparente para o cabeçalho.
+
+ALTERAÇÕES RÁPIDAS
+- Para mudar o tamanho da logo, altere --largura-logo no início de style.css.
+- Para ajustar as cores, altere --vinho e --rosa no início de style.css.
+- Para ajustar o menu, altere --largura-menu e --largura-menu-fechado.
+- O cabeçalho e o rodapé ficam fixos; só o centro tem rolagem própria.
+
+OBSERVAÇÕES
+- Dúvidas com IA: atualmente é um guia local de perguntas e respostas, NÃO uma integração real com IA.
+- Contato: não envia mensagens para um servidor; salva/copia um rascunho.
+- Preferências, progresso e melhores resultados são armazenados no próprio navegador quando possível.
+- É um protótipo educacional: teste e entenda o código antes de usá-lo em uma entrega escolar.

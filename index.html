@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#57002E">
+  <meta name="description" content="Malhix: portal educacional interativo para estudar fundamentos da eletroeletrônica.">
+  <title>Malhix • Fundamentos da Eletroeletrônica</title>
+  <link rel="icon" href="assets/logo-malhix.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- Ícones vetoriais disponíveis sem conexão com a internet. -->
+  <svg class="icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z"/><path d="M9 21v-8h6v8"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="4"/><path d="M12 3v4M9 3h6"/><path d="M8 13h.01M16 13h.01M9 17h6"/></symbol>
+    <symbol id="i-activities" viewBox="0 0 24 24"><rect x="4" y="3" width="14" height="18" rx="2"/><path d="M8 8h6M8 12h3m2 6 5-5 2 2-5 5-3 1z"/></symbol>
+    <symbol id="i-quiz" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V2h6v2m-6 10 2 2 4-4M9 17h6"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6C9 4 6 4 3 5v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1Zm0 0v14"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 7 9-7"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M9.7 3h4.6l.8 2.6 2.1 1.2 2.7-.7 2.3 4-1.9 2v2.4l1.9 2-2.3 4-2.7-.7-2.1 1.2-.8 2.6H9.7l-.8-2.6-2.1-1.2-2.7.7-2.3-4 1.9-2v-2.4l-1.9-2 2.3-4 2.7.7 2.1-1.2Z" transform="translate(0,-1) scale(1,.96)"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 10-12h-7l0-8Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5 9a8 8 0 0 1 14-2l1 5M4 12l1 5a8 8 0 0 0 14-2"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7ZM11 13 22 2"/></symbol>
+    <symbol id="i-node" viewBox="0 0 24 24"><circle cx="4" cy="12" r="2"/><circle cx="20" cy="12" r="2"/><circle cx="12" cy="12" r="3"/><path d="M6 12h3m6 0h3M12 3v6m0 6v6"/></symbol>
+    <symbol id="i-loop" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 4v3m8 10v3M4 12h3m10 0h3"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 11v6m0-10h.01"/></symbol>
+  </svg>
+ 
+  <header class="cabecalho" role="banner">
+    <div class="header-left">
+      <button id="botao-menu" class="icon-button header-menu" type="button" aria-label="Recolher menu" aria-expanded="true" aria-controls="menu-lateral" title="Abrir ou recolher menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+      <button class="brand-button" data-page="inicio" type="button" aria-label="Voltar à página inicial">
+        <img src="assets/logo-malhix.png" alt="Malhix" class="logo-malhix">
+      </button>
+    </div>
+    <div class="header-title">Fundamentos da Eletroeletrônica</div>
+    <nav class="header-links" aria-label="Acesso rápido">
+      <button type="button" data-page="contato">Contato</button>
+      <button type="button" data-page="ia">Dúvidas com IA</button>
+    </nav>
+  </header>
+ 
+  <aside id="menu-lateral" class="menu-lateral" aria-label="Menu lateral">
+    <nav class="side-nav" aria-label="Navegação principal">
+      <button class="nav-button ativo" type="button" data-page="inicio" title="Página principal" aria-current="page"><svg class="icon"><use href="#i-home"/></svg><span class="nav-label">Página principal</span></button>
+      <button class="nav-button" type="button" data-page="ia" title="Dúvidas com IA"><svg class="icon"><use href="#i-bot"/></svg><span class="nav-label">Dúvidas com IA</span></button>
+      <button class="nav-button" type="button" data-page="atividades" title="Atividades"><svg class="icon"><use href="#i-activities"/></svg><span class="nav-label">Atividades</span></button>
+      <button class="nav-button" type="button" data-page="quizzes" title="Quizzes e testes simulados"><svg class="icon"><use href="#i-quiz"/></svg><span class="nav-label">Quizzes e testes</span></button>
+      <button class="nav-button" type="button" data-page="conteudo" title="Sobre o conteúdo"><svg class="icon"><use href="#i-book"/></svg><span class="nav-label">Sobre o conteúdo</span></button>
+      <button class="nav-button" type="button" data-page="contato" title="Contato"><svg class="icon"><use href="#i-mail"/></svg><span class="nav-label">Contato</span></button>
+      <button class="nav-button" type="button" data-page="configuracoes" title="Configurações"><svg class="icon"><use href="#i-settings"/></svg><span class="nav-label">Configurações</span></button>
+    </nav>
+    <div class="aside-bottom" aria-hidden="true"><span class="aside-pulse"></span><span class="aside-caption">Aprender é conectar.</span></div>
+  </aside>
+  <button id="menu-fundo" class="menu-fundo" type="button" aria-label="Fechar menu lateral" hidden></button>
+ 
+  <main id="conteudo-principal" class="conteudo-principal" tabindex="-1">
+    <!-- Início -->
+    <section class="page" id="page-inicio" data-panel="inicio" aria-labelledby="titulo-inicio">
+      <div class="crumb">MALHIX <span>/</span> PÁGINA PRINCIPAL</div>
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span> PORTAL EDUCACIONAL DE ELETROELETRÔNICA</div>
+          <h1 id="titulo-inicio">Aprenda <em>eletroeletrônica</em> do básico às aplicações.</h1>
+          <p>Estude componentes passivos e ativos, grandezas elétricas, aplicações práticas, proteção e medição em um só portal.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button" data-page="conteudo">Iniciar os estudos <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <button class="btn btn-soft" type="button" data-page="quizzes">Testar conhecimentos</button>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 380 300" class="circuit-illustration">
+            <defs><linearGradient id="circuit-gradient" x1="0" x2="1"><stop stop-color="#ff8cb4"/><stop offset="1" stop-color="#ec4e8c"/></linearGradient></defs>
+            <circle cx="188" cy="150" r="115" fill="none" stroke="#F5BED3" stroke-dasharray="5 9" stroke-width="2" />
+            <path d="M91 94H290V215H91Z" stroke="#a81b64" stroke-width="6" fill="none" stroke-linejoin="round" />
+            <path d="M91 152h48l10-17 16 35 18-35 18 17h89" stroke="url(#circuit-gradient)" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M175 94v-22m0 143v25M91 94H65m225 121h27" stroke="#a81b64" stroke-width="4" stroke-linecap="round" />
+            <g fill="#FFF7FA" stroke="#ab1b65" stroke-width="6"><circle cx="91" cy="94" r="12"/><circle cx="290" cy="94" r="12"/><circle cx="91" cy="215" r="12"/><circle cx="290" cy="215" r="12"/></g>
+            <circle cx="190" cy="152" r="25" fill="#FFDBE9" stroke="#e64b89" stroke-width="3" />
+            <path d="m196 135-14 21h11l-5 14 15-21h-10Z" fill="#B20D62" />
+            <text x="190" y="46" fill="#a81b64" font-size="19" text-anchor="middle" font-weight="700">Σ I = 0</text>
+            <text x="190" y="270" fill="#a81b64" font-size="19" text-anchor="middle" font-weight="700">Σ V = 0</text>
+          </svg>
+        </div>
+      </div>
+      <div class="section-heading"><div><span class="section-kicker">SEU CAMINHO</span><h2>O que você quer fazer hoje?</h2></div><span class="muted small">Escolha por onde começar</span></div>
+      <div class="feature-grid">
+        <button type="button" class="feature-card" data-page="conteudo"><span class="feature-icon"><svg class="icon"><use href="#i-book"/></svg></span><strong>Aprender o conteúdo</strong><span>Explore módulos completos com resumos, definições e aplicações reais.</span><span class="feature-arrow">Explorar <svg class="icon"><use href="#i-arrow"/></svg></span></button>
+        <button type="button" class="feature-card" data-page="atividades"><span class="feature-icon"><svg class="icon"><use href="#i-activities"/></svg></span><strong>Resolver atividades</strong><span>Pratique com exercícios de vários temas e confira as resoluções.</span><span class="feature-arrow">Praticar <svg class="icon"><use href="#i-arrow"/></svg></span></button>
+        <button type="button" class="feature-card" data-page="quizzes"><span class="feature-icon"><svg class="icon"><use href="#i-quiz"/></svg></span><strong>Quizzes e simulados</strong><span>Teste seus conhecimentos em diferentes assuntos da eletroeletrônica.</span><span class="feature-arrow">Começar <svg class="icon"><use href="#i-arrow"/></svg></span></button>
+        <button type="button" class="feature-card" data-page="ia"><span class="feature-icon"><svg class="icon"><use href="#i-bot"/></svg></span><strong>Dúvidas sobre a matéria</strong><span>Consulte um guia com respostas rápidas sobre os principais conceitos.</span><span class="feature-arrow">Perguntar <svg class="icon"><use href="#i-arrow"/></svg></span></button>
+      </div>
+      <div class="home-bottom">
+        <div class="quote-box"><span class="section-kicker">IDEIA CENTRAL</span><p>Dos resistores aos transistores, compreender o funcionamento dos componentes ajuda a interpretar, montar e analisar circuitos com mais segurança.</p></div>
+        <div class="stats-box"><div><strong>05</strong><span>módulos principais</span></div><div><strong id="home-atividade-total">0/10</strong><span>atividades concluídas</span></div><div><strong id="home-melhor-nota">—</strong><span>melhor resultado</span></div></div>
+      </div>
+    </section>
+ 
+    <!-- Conteúdo -->
+    <section class="page" id="page-conteudo" data-panel="conteudo" aria-labelledby="titulo-conteudo" hidden>
+      <div class="crumb">ESTUDOS <span>/</span> SOBRE O CONTEÚDO</div>
+      <div class="page-heading"><div><span class="section-kicker">TRILHA DE ESTUDO</span><h1 id="titulo-conteudo">Fundamentos da Eletroeletrônica</h1><p>Uma visão ampla dos conceitos essenciais: componentes, circuitos, sinais, aplicações e instrumentos.</p></div><span class="heading-badge"><svg class="icon"><use href="#i-book"/></svg> Material de estudo</span></div>
+      <div class="jump-links"><button class="chip" type="button" data-scroll="modulo1">Componentes passivos</button><button class="chip" type="button" data-scroll="modulo2">Semicondutores</button><button class="chip" type="button" data-scroll="modulo3">Grandezas e circuitos</button><button class="chip" type="button" data-scroll="modulo4">Aplicações práticas</button><button class="chip" type="button" data-scroll="modulo5">Proteção e medição</button></div>
+      <article class="content-card" id="modulo1"><span class="card-index">01 / COMPONENTES PASSIVOS BÁSICOS</span><h2>Base para o estudo dos circuitos</h2><p>Os componentes passivos não amplificam sinais, mas são fundamentais para limitar corrente, armazenar energia, filtrar sinais e montar circuitos estáveis.</p><div class="subtopic-grid"><div class="subtopic-item"><strong>1.1 - Resistores e a Lei de Ohm</strong><p>O resistor se opõe à passagem da corrente elétrica. A Lei de Ohm relaciona tensão, corrente e resistência: <strong>V = R · I</strong>. É um dos primeiros cálculos usados em circuitos.</p></div><div class="subtopic-item"><strong>1.2 - Capacitores e Armazenamento de Energia</strong><p>Capacitores acumulam cargas elétricas em um campo elétrico. São muito usados em filtros, temporização e estabilização de tensão.</p></div><div class="subtopic-item"><strong>1.3 - Indutores e Eletromagnetismo</strong><p>Indutores armazenam energia em campo magnético e se opõem a variações bruscas de corrente. Estão ligados ao eletromagnetismo e a circuitos com bobinas.</p></div><div class="subtopic-item"><strong>1.4 - Associação de Componentes</strong><p>Resistores, capacitores e indutores podem ser associados em série e em paralelo. Essas combinações alteram o comportamento elétrico do circuito.</p></div></div></article>
+      <article class="content-card" id="modulo2"><span class="card-index">02 / SEMICONDUTORES E COMPONENTES ATIVOS</span><h2>Controle, retificação e amplificação</h2><p>Os componentes ativos conseguem controlar o fluxo de corrente e atuar em amplificação, chaveamento e processamento de sinais.</p><div class="subtopic-grid"><div class="subtopic-item"><strong>2.1 - Diodos e Retificação</strong><p>O diodo conduz principalmente em um sentido. Ele é usado para retificar corrente alternada, proteger circuitos e controlar polaridade.</p></div><div class="subtopic-item"><strong>2.2 - Transistores Bipolares de Junção (TBJ)</strong><p>Os TBJs podem funcionar como amplificadores ou chaves eletrônicas. Seu comportamento envolve emissor, base e coletor.</p></div><div class="subtopic-item"><strong>2.3 - Transistores de Efeito de Campo (MOSFETs)</strong><p>MOSFETs são muito usados em eletrônica moderna por permitirem controle de corrente com alta eficiência, especialmente em chaveamento.</p></div><div class="subtopic-item"><strong>2.4 - Circuitos Integrados (CIs)</strong><p>Os CIs reúnem muitos componentes em um único encapsulamento. Podem executar funções de controle, amplificação, temporização e processamento.</p></div></div></article>
+      <article class="content-card" id="modulo3"><span class="card-index">03 / GRANDEZAS, SINAIS E CIRCUITOS ELÉTRICOS</span><h2>Entendendo como os circuitos se comportam</h2><p>Esse módulo reúne conceitos que ajudam a interpretar o funcionamento elétrico dos sistemas e a resolver problemas com mais segurança.</p><div class="subtopic-grid"><div class="subtopic-item"><strong>3.1 - Corrente Contínua (CC) vs. Corrente Alternada (CA)</strong><p>Na corrente contínua, o fluxo elétrico mantém o mesmo sentido. Na alternada, ele varia periodicamente. Cada uma tem aplicações específicas.</p></div><div class="subtopic-item"><strong>3.2 - Leis de Kirchhoff</strong><p>As Leis de Kirchhoff auxiliam na análise de circuitos: a Lei dos Nós trabalha com conservação da carga e a Lei das Malhas com conservação da energia.</p></div><div class="subtopic-item"><strong>3.3 - Potência Elétrica e Efeito Joule</strong><p>A potência indica a taxa de transformação de energia elétrica. O efeito Joule mostra que parte dessa energia pode ser convertida em calor.</p></div><div class="subtopic-item"><strong>3.4 - Frequência e Sinais Elétricos</strong><p>Frequência indica quantas oscilações acontecem em um segundo. O estudo dos sinais elétricos ajuda a compreender ondas, pulsos e resposta dos circuitos.</p></div></div></article>
+      <article class="content-card" id="modulo4"><span class="card-index">04 / APLICAÇÕES PRÁTICAS DOS COMPONENTES</span><h2>Quando a teoria passa a resolver problemas reais</h2><p>Neste módulo, os componentes e grandezas estudados aparecem em aplicações muito comuns na eletrônica e na eletroeletrônica.</p><div class="subtopic-grid"><div class="subtopic-item"><strong>4.1 - Circuitos de Filtros Passivos (RC e RL)</strong><p>Filtros passivos utilizam resistores com capacitores ou indutores para atenuar ou permitir certas faixas de frequência.</p></div><div class="subtopic-item"><strong>4.2 - Divisores de Tensão e Corrente</strong><p>Esses circuitos distribuem tensão ou corrente entre componentes. São úteis em medições, sensores e adaptação de sinais.</p></div><div class="subtopic-item"><strong>4.3 - Fontes de Alimentação Lineares</strong><p>As fontes lineares transformam, retificam, filtram e regulam a energia elétrica para alimentar circuitos eletrônicos com estabilidade.</p></div><div class="subtopic-item"><strong>4.4 - Circuitos de Temporização (Constante de Tempo RC)</strong><p>Em circuitos RC, a constante de tempo define a velocidade de carga e descarga do capacitor, sendo útil em atrasos e temporizadores.</p></div></div></article>
+      <article class="content-card" id="modulo5"><span class="card-index">05 / PROTEÇÃO, MEDIÇÃO E MATERIAIS</span><h2>Segurança, diagnóstico e escolha correta de materiais</h2><p>Além de montar um circuito, é importante protegê-lo, medir corretamente suas grandezas e compreender os materiais usados na prática.</p><div class="subtopic-grid"><div class="subtopic-item"><strong>5.1 - Dispositivos de Proteção de Circuitos</strong><p>Fusíveis, disjuntores e outros dispositivos protegem o circuito contra sobrecorrente, curtos e falhas que possam danificar componentes.</p></div><div class="subtopic-item"><strong>5.2 - Materiais Condutores, Isolantes e Semicondutores</strong><p>Cada material possui comportamento elétrico diferente. Essa classificação orienta a construção de fios, placas e componentes eletrônicos.</p></div><div class="subtopic-item"><strong>5.3 - Uso do Multímetro no Diagnóstico de Componentes</strong><p>O multímetro permite medir tensão, corrente, resistência e testar continuidade, sendo essencial para manutenção e análise básica.</p></div><div class="subtopic-item"><strong>5.4 - Relés e Chaves Eletromecânicas</strong><p>Relés e chaves permitem controlar circuitos, ligar cargas e isolar partes do sistema, unindo princípios elétricos e mecânicos.</p></div></div><div class="content-actions"><button class="btn btn-primary" type="button" data-page="atividades">Ir para atividades <svg class="icon"><use href="#i-arrow"/></svg></button><button class="btn btn-soft" type="button" data-page="inicio">Voltar ao início</button></div></article>
+    </section>
+<!-- Atividades -->
+    <section class="page" id="page-atividades" data-panel="atividades" aria-labelledby="titulo-atividades" hidden>
+      <div class="crumb">PRATICAR <span>/</span> ATIVIDADES</div>
+      <div class="page-heading"><div><span class="section-kicker">APRENDIZADO ATIVO</span><h1 id="titulo-atividades">Atividades.</h1><p>Resolva os exercícios no caderno e abra a resolução quando terminar.</p></div><div class="metric"><strong id="atividades-contagem">0/10</strong><span>concluídas</span></div></div>
+      <div class="progress-track"><div id="atividades-progresso" class="progress-fill"></div></div>
+      <div class="activities-list">
+        <article class="activity-card" data-activity="a1"><div class="activity-top"><span class="number-pill">01</span><span class="activity-tag">LEI DE OHM</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Corrente em um resistor</h2><p>Um resistor de 10 Ω está ligado a uma fonte de 20 V. Qual é a corrente elétrica no circuito?</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resolução</button><div class="answer" hidden><strong>Resolução:</strong><p>Pela Lei de Ohm, I = V/R = 20/10. Portanto, <strong>I = 2 A.</strong></p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a2"><div class="activity-top"><span class="number-pill">02</span><span class="activity-tag">CAPACITORES</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Função do capacitor</h2><p>Explique com suas palavras para que serve um capacitor em um circuito eletrônico.</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resposta sugerida</button><div class="answer" hidden><strong>Resposta sugerida:</strong><p>O capacitor armazena energia em forma de campo elétrico e pode ser usado para filtrar sinais, suavizar tensão e produzir atrasos em circuitos.</p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a3"><div class="activity-top"><span class="number-pill">03</span><span class="activity-tag">INDUTORES</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Variação de corrente</h2><p>Por que um indutor se opõe a variações bruscas de corrente?</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resposta sugerida</button><div class="answer" hidden><strong>Resposta sugerida:</strong><p>Porque o indutor armazena energia em campo magnético. Quando a corrente tenta variar rapidamente, surge uma tensão induzida que se opõe a essa mudança.</p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a4"><div class="activity-top"><span class="number-pill">04</span><span class="activity-tag">ASSOCIAÇÕES</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Resistores em série</h2><p>Dois resistores de 4 Ω e 6 Ω estão em série. Qual é a resistência equivalente?</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resolução</button><div class="answer" hidden><strong>Resolução:</strong><p>Em série, as resistências se somam: 4 + 6 = <strong>10 Ω</strong>.</p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a5"><div class="activity-top"><span class="number-pill">05</span><span class="activity-tag">DIODOS</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Retificação</h2><p>Qual é a função principal de um diodo em um circuito retificador?</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resposta sugerida</button><div class="answer" hidden><strong>Resposta sugerida:</strong><p>Permitir a condução principalmente em um sentido, convertendo corrente alternada em uma forma pulsante de corrente contínua.</p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a6"><div class="activity-top"><span class="number-pill">06</span><span class="activity-tag">KIRCHHOFF</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Corrente em um nó</h2><p>Entram 8 A em um nó. Saem 3 A e 2 A por dois ramos. Qual é a corrente no terceiro ramo de saída?</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resolução</button><div class="answer" hidden><strong>Resolução:</strong><p>Pela Lei dos Nós: 8 = 3 + 2 + I. Logo, <strong>I = 3 A.</strong></p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a7"><div class="activity-top"><span class="number-pill">07</span><span class="activity-tag">POTÊNCIA</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Potência elétrica</h2><p>Um equipamento opera com 12 V e corrente de 2 A. Qual é a potência elétrica consumida?</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resolução</button><div class="answer" hidden><strong>Resolução:</strong><p>P = V · I = 12 · 2 = <strong>24 W</strong>.</p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a8"><div class="activity-top"><span class="number-pill">08</span><span class="activity-tag">DIVISOR DE TENSÃO</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Aplicação prática</h2><p>Explique por que divisores de tensão são úteis em circuitos eletrônicos.</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resposta sugerida</button><div class="answer" hidden><strong>Resposta sugerida:</strong><p>Eles permitem obter uma tensão menor a partir de uma tensão maior, sendo úteis em sensores, medições e adaptação de sinais para outros componentes.</p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a9"><div class="activity-top"><span class="number-pill">09</span><span class="activity-tag">MULTÍMETRO</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Medição segura</h2><p>Cite duas grandezas que podem ser medidas com um multímetro comum.</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resposta sugerida</button><div class="answer" hidden><strong>Resposta sugerida:</strong><p>O multímetro pode medir, por exemplo, <strong>tensão elétrica</strong> e <strong>resistência elétrica</strong>. Muitos modelos também medem corrente e continuidade.</p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+        <article class="activity-card" data-activity="a10"><div class="activity-top"><span class="number-pill">10</span><span class="activity-tag">PROTEÇÃO</span><span class="activity-check" aria-hidden="true">○ Pendente</span></div><h2>Protegendo circuitos</h2><p>Por que fusíveis e disjuntores são importantes em instalações e equipamentos?</p><button class="btn btn-outline reveal-answer" type="button" aria-expanded="false">Ver resposta sugerida</button><div class="answer" hidden><strong>Resposta sugerida:</strong><p>Porque interrompem a passagem de corrente em condições anormais, ajudando a evitar danos aos componentes, superaquecimento e riscos de acidentes.</p><button class="btn btn-primary mark-activity" type="button">Marcar como concluída</button></div></article>
+      </div>
+      <div class="content-actions"><button class="btn btn-soft" type="button" data-page="inicio">← Voltar ao início</button><button class="btn btn-primary" type="button" data-page="quizzes">Ir para quizzes <svg class="icon"><use href="#i-arrow"/></svg></button></div>
+    </section>
+<!-- Quizzes + Simulado -->
+    <section class="page" id="page-quizzes" data-panel="quizzes" aria-labelledby="titulo-quizzes" hidden>
+      <div class="crumb">AVALIAÇÃO <span>/</span> QUIZZES E TESTES</div>
+      <div class="page-heading"><div><span class="section-kicker">DESAFIE SEU CONHECIMENTO</span><h1 id="titulo-quizzes">Quizzes e simulados.</h1><p>Aprenda com perguntas, correções e resultados instantâneos.</p></div><span class="heading-badge"><svg class="icon"><use href="#i-quiz"/></svg> Autoavaliação</span></div>
+      <div class="tabs" role="tablist" aria-label="Escolher modalidade"><button id="tab-quiz" class="tab active" type="button" data-mode="quiz" role="tab" aria-selected="true" aria-controls="quiz-zone">Quiz rápido</button><button id="tab-simulado" class="tab" type="button" data-mode="simulado" role="tab" aria-selected="false" aria-controls="simulado-zone">Simulado cronometrado</button></div>
+      <section id="quiz-zone" class="test-zone" role="tabpanel" aria-labelledby="tab-quiz"><div id="quiz-app" class="quiz-app"><div class="start-state"><span class="test-emblem"><svg class="icon"><use href="#i-zap"/></svg></span><h2>Que tal um quiz rápido?</h2><p>Seis perguntas para revisar temas variados da eletroeletrônica.</p><button id="iniciar-quiz" class="btn btn-primary" type="button">Iniciar quiz <svg class="icon"><use href="#i-arrow"/></svg></button></div></div></section>
+      <section id="simulado-zone" class="test-zone" role="tabpanel" aria-labelledby="tab-simulado" hidden><div id="simulado-app" class="quiz-app"><div class="start-state"><span class="test-emblem"><svg class="icon"><use href="#i-clock"/></svg></span><h2>Simulado de Eletroeletrônica</h2><p>Oito questões e 10 minutos. As respostas serão corrigidas quando você terminar ou o tempo acabar.</p><button id="iniciar-simulado" class="btn btn-primary" type="button">Iniciar simulado <svg class="icon"><use href="#i-arrow"/></svg></button></div></div></section>
+      <div class="hint-card"><svg class="icon"><use href="#i-info"/></svg><span>Os quizzes e simulados desta versão funcionam sem internet. São exercícios educativos, organizados para revisar os principais conteúdos do portal.</span></div>
+      <div class="content-actions"><button class="btn btn-soft" type="button" data-page="inicio">← Voltar ao início</button></div>
+    </section>
+ 
+    <!-- Dúvidas e IA -->
+    <section class="page" id="page-ia" data-panel="ia" aria-labelledby="titulo-ia" hidden>
+      <div class="crumb">SUPORTE <span>/</span> DÚVIDAS COM IA</div>
+      <div class="page-heading"><div><span class="section-kicker">ASSISTENTE DE ESTUDOS</span><h1 id="titulo-ia">Tire suas dúvidas!</h1><p>Um espaço para tirar dúvidas sobre componentes, circuitos, sinais, medições e aplicações.</p></div><span class="heading-badge"><svg class="icon"><use href="#i-bot"/></svg> Guia Malhix</span></div>
+      <div class="notice"><svg class="icon"><use href="#i-info"/></svg><div><strong>Como funciona esta demonstração?</strong><p>Aqui há um guia de respostas locais previamente preparadas, <strong>não uma IA conectada</strong>. Uma IA real exigiria serviço externo, integração segura e autorização do professor.</p></div></div>
+      <div class="chat-card"><div class="chat-header"><span class="bot-avatar"><svg class="icon"><use href="#i-bot"/></svg></span><div><strong>Guia Malhix</strong><span>Respostas sobre eletroeletrônica básica</span></div></div><div id="chat-messages" class="chat-messages" role="log" aria-live="polite" aria-relevant="additions"><div class="bubble bot">Oi! Posso ajudar com conceitos como Lei de Ohm, componentes passivos, semicondutores, Leis de Kirchhoff, medições e exercícios. Escolha uma sugestão ou escreva sua pergunta.</div></div><div class="suggestions"><button type="button" data-question="O que é a Lei de Ohm?">Lei de Ohm</button><button type="button" data-question="O que é um capacitor?">Capacitor</button><button type="button" data-question="Qual a diferença entre CC e CA?">CC e CA</button><button type="button" data-question="Como usar o multímetro?">Multímetro</button></div><form id="chat-form" class="chat-compose"><label class="sr-only" for="chat-input">Digite sua pergunta</label><input id="chat-input" name="pergunta" maxlength="240" autocomplete="off" placeholder="Digite sua dúvida sobre eletroeletrônica..." required><button class="btn btn-primary" type="submit" aria-label="Enviar pergunta"><svg class="icon"><use href="#i-send"/></svg></button></form></div>
+      <div class="content-actions"><button class="btn btn-soft" type="button" data-page="inicio">← Voltar ao início</button></div>
+    </section>
+ 
+    <!-- Contato -->
+    <section class="page" id="page-contato" data-panel="contato" aria-labelledby="titulo-contato" hidden>
+      <div class="crumb">MALHIX <span>/</span> CONTATO</div><div class="page-heading"><div><span class="section-kicker">FALE COM A EQUIPE</span><h1 id="titulo-contato">Vamos conversar?</h1><p>Comentários, sugestões ou dúvidas sobre o portal? Registre uma mensagem.</p></div></div>
+      <div class="contact-layout"><div class="contact-intro"><span class="feature-icon"><svg class="icon"><use href="#i-mail"/></svg></span><h2>Equipe Malhix</h2><p>Este portal foi planejado para tornar o estudo da eletroeletrônica mais acessível e interessante.</p><p class="muted small">Demonstração escolar: nenhuma mensagem será enviada para um servidor. O formulário permite salvar e copiar um rascunho neste dispositivo.</p></div><form id="contact-form" class="contact-form"><label for="contact-name">Seu nome</label><input id="contact-name" name="nome" maxlength="70" placeholder="Como podemos chamar você?" required><label for="contact-subject">Assunto</label><select id="contact-subject" name="assunto"><option>Dúvida sobre o conteúdo</option><option>Sugestão para o site</option><option>Correção de informação</option><option>Outro assunto</option></select><label for="contact-message">Sua mensagem</label><textarea id="contact-message" name="mensagem" rows="5" maxlength="1500" placeholder="Escreva aqui..." required></textarea><div class="form-actions"><button type="button" class="btn btn-soft" id="salvar-contato">Salvar rascunho</button><button type="button" class="btn btn-primary" id="copiar-contato">Copiar mensagem</button></div><p id="contact-feedback" class="small muted" role="status"></p></form></div>
+      <div class="content-actions"><button class="btn btn-soft" type="button" data-page="inicio">← Voltar ao início</button></div>
+    </section>
+ 
+    <!-- Configurações -->
+    <section class="page" id="page-configuracoes" data-panel="configuracoes" aria-labelledby="titulo-configuracoes" hidden>
+      <div class="crumb">PREFERÊNCIAS <span>/</span> CONFIGURAÇÕES</div><div class="page-heading"><div><span class="section-kicker">DO SEU JEITO</span><h1 id="titulo-configuracoes">Configurações.</h1><p>Ajuste sua experiência de leitura e navegação.</p></div></div>
+      <div class="settings-card"><div class="setting-line"><div><strong>Tamanho do texto</strong><span>Escolha o tamanho mais confortável para ler.</span></div><div class="setting-controls"><button type="button" id="font-minus" class="setting-small" aria-label="Diminuir texto">A−</button><span id="font-value">100%</span><button type="button" id="font-plus" class="setting-small" aria-label="Aumentar texto">A+</button></div></div><div class="setting-line"><div><strong>Contraste reforçado</strong><span>Destaca contornos e textos das áreas principais.</span></div><label class="switch"><input id="contrast-toggle" type="checkbox" aria-label="Ativar contraste reforçado"><span class="switch-track"></span></label></div><div class="setting-line"><div><strong>Reduzir animações</strong><span>Diminui movimentos do menu e transições.</span></div><label class="switch"><input id="motion-toggle" type="checkbox" aria-label="Reduzir animações"><span class="switch-track"></span></label></div><div class="setting-line"><div><strong>Progresso salvo</strong><span>Reinicia o progresso das atividades e a melhor nota de quiz neste navegador.</span></div><button id="clear-progress" type="button" class="btn btn-outline">Limpar progresso</button></div></div><div class="hint-card"><svg class="icon"><use href="#i-info"/></svg><span>As preferências são guardadas neste navegador, quando o armazenamento local está disponível.</span></div><p id="settings-feedback" class="small muted" role="status"></p><div class="content-actions"><button class="btn btn-soft" type="button" data-page="inicio">← Voltar ao início</button></div>
+    </section>
+  </main>
+ 
+  <footer class="rodape"><span>© 2026 <strong>Malhix</strong> • Portal Educacional</span><span class="footer-extra">Feito para aprender, conectar e descobrir.</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
+
+ 
+ 

@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (/kirchhoff|malha|no\b|nos\b/.test(q)) return "As Leis de Kirchhoff ajudam a analisar circuitos: a Lei dos Nós afirma que a soma das correntes que entram em um nó é igual à soma das que saem; a Lei das Malhas diz que a soma algébrica das tensões em um percurso fechado é zero.";
     if (/potencia|joule|calor/.test(q)) return "A potência elétrica indica a taxa de transformação de energia: P = V · I. O efeito Joule mostra que parte da energia elétrica pode se transformar em calor.";
     if (/filtro|divisor|fonte|temporiza|rc|rl/.test(q)) return "Filtros RC e RL moldam sinais. Divisores de tensão e corrente distribuem grandezas pelo circuito. Fontes lineares alimentam circuitos, e a constante de tempo RC é importante em temporização.";
-    if (/multimetro|edson|medicao|fusivel|disjuntor|rele|chave|protec/.test(q)) return "O multímetro mede grandezas como tensão, corrente e resistência. Já fusíveis, disjuntores, relés e chaves ajudam na proteção, controle e diagnóstico dos circuitos.";
+    if (/edson|multimetro|medir|medicao|fusivel|disjuntor|rele|chave|protec/.test(q)) return "O multímetro mede grandezas como tensão, corrente e resistência. Já fusíveis, disjuntores, relés e chaves ajudam na proteção, controle e diagnóstico dos circuitos.";
     if (/atividade|quiz|simulado|estud/.test(q)) return "No Malhix, você pode estudar os módulos na área de conteúdo, praticar em atividades comentadas e revisar por meio de quizzes e simulados.";
     return "Ainda não tenho uma resposta pronta para essa pergunta. Experimente perguntar sobre Lei de Ohm, capacitores, indutores, diodos, CC e CA, Leis de Kirchhoff, multímetro ou proteção de circuitos.";
   }
